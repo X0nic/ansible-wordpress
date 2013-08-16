@@ -35,3 +35,5 @@
 
 - name: Pull theme code from Github
   git: repo=https://github.com/dailyemerald/EMG-Wordpress-Theme.git dest=/srv/wordpress/wp-content/themes/emg-theme
+  notify: 
+  - restart php5-fpm
