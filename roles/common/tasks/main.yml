@@ -1,0 +1,7 @@
+---
+- name: install git
+  apt: name=git-core state=latest 
+  
+- name: Set up iptables rules
+  copy: src=iptables-save dest=/etc/sysconfig/iptables
+  notify: restart iptables

@@ -1,0 +1,3 @@
+---
+- name: Install memcached
+  apt: name=memcached state=latest
