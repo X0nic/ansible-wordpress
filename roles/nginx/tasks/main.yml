@@ -9,10 +9,14 @@
 
 - name: Remove "default" in sites-availabe
   file: dest=/etc/nginx/sites-available/default state=absent
+  file: dest=/etc/nginx/sites-enabled/default state=absent
   notify: restart nginx
 
 - name: Copy nginx configuration for wordpress
-  template: src=default.conf dest=/etc/nginx/sites-enabled/default
+  template: src=default.conf dest=/etc/nginx/sites-available/wordpress
+
+- name: Link nginx configuration for wordpress
+  file: src=/etc/nginx/sites-available/wordpress dest=/etc/nginx/sites-enabled/wordpress state=link
   notify: restart nginx
 
 - name: Start nginx Service
