@@ -1,10 +1,22 @@
 ---
-- name: install git
-  apt: name=git-core state=latest
-
-- name: install vim
-  apt: name=vim state=latest
-
-#- name: Set up iptables rules
-#  copy: src=iptables-save dest=/etc/sysconfig/iptables
-#  notify: restart iptables
+- name: Install necessities and nice-to-haves
+  apt: pkg=$item state=installed
+  with_items:
+    - sudo
+    - vim
+    - htop
+    - iftop
+    - iotop
+    - mosh
+    - zsh
+    - git
+    - encfs
+    - libfuse-dev
+    - fuse-utils
+    - ruby1.9.3
+    - screen
+    - tmux
+    - build-essential
+    - apticron
+    - update-notifier-common
+    - debian-goodies
