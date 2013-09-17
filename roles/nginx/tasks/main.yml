@@ -13,10 +13,10 @@
   notify: restart nginx
 
 - name: Copy nginx configuration for wordpress
-  template: src=default.conf dest=/etc/nginx/sites-available/wordpress
+  template: src=default.conf dest=/etc/nginx/sites-available/wordpress.conf
 
 - name: Link nginx configuration for wordpress
-  file: src=/etc/nginx/sites-available/wordpress dest=/etc/nginx/sites-enabled/wordpress state=link
+  file: src=/etc/nginx/sites-available/wordpress.conf dest=/etc/nginx/sites-enabled/wordpress.conf state=link
   notify: restart nginx
 
 - name: Start nginx Service

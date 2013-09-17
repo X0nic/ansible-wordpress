@@ -8,5 +8,8 @@ wp_db_name: wordpress
 wp_db_user: wordpress
 wp_db_password: secret
 
+# Where should we put wordpress?
+wp_home: "/var/www/wordpress"
+
 # You shouldn't need to change this.
 mysql_port: 3306
