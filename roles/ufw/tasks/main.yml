@@ -1,0 +1,29 @@
+---
+- name:   firewall disable
+  action: shell yes | ufw disable
+  tags:   ufw
+
+- name:   firewall reset
+  action: shell yes | ufw reset --force
+  tags:   ufw
+
+- name:   firewall allow ssh
+  action: command ufw allow 22
+  tags:   ufw
+
+- name:   firewall deny all
+  action: command ufw default deny
+  tags:   ufw
+
+- name:       ufw rules
+  command:    ufw {{ item }}
+  # with_items: ufw.rules
+  # when:       ufw.rules is defined
+  with_items:
+    - allow 80
+    - allow 443
+  tags:       ufw
+
+- name:   firewall enable
+  action: shell yes | ufw enable
+  tags:   ufw
