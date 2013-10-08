@@ -1,10 +1,10 @@
 ---
 - name: Download Wordpress
-  get_url: url=http://wordpress.org/wordpress-{{ wp_version }}.tar.gz dest={{ wp_home }}-{{ wp_version }}.tar.gz
+  get_url: url=http://wordpress.org/wordpress-{{ wp_version }}.tar.gz dest=/var/www/wordpress-{{ wp_version }}.tar.gz
            sha256sum="{{ wp_sha256sum }}"
 
 - name: Extract archive
-  command: chdir=/srv/ /bin/tar xvf wordpress-{{ wp_version }}.tar.gz creates={{ wp_home }}
+  command: chdir=/var/www/ /bin/tar xvf wordpress-{{ wp_version }}.tar.gz creates={{ wp_home }}
 
 - name: Add group "wordpress"
   group: name=wordpress
