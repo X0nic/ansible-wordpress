@@ -1,0 +1,11 @@
+---
+##
+# FTP server setup.
+#
+- name: FTP | vsftpd daemon package
+  action: apt pkg=vsftpd state=installed
+  tags: ftp
+
+- name: FTP | Configuration setup
+  action: template src=etc-vsftpd-conf.j2 dest=/etc/vsftpd.conf
+  tags: ftp

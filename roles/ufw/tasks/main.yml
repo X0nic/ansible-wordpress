@@ -22,6 +22,7 @@
   with_items:
     - allow 80
     - allow 443
+    - allow 21
   tags:       ufw
 
 - name:   firewall enable

@@ -1,5 +1,5 @@
 ---
-- name: Install Wordpress, MySQL, Nginx, and PHP-FPM
+- name: Install Wordpress, MySQL, Nginx, PHP-FPM, and vsftpd
   hosts: all
   # user: root
   user: vagrant
@@ -13,3 +13,4 @@
     - nginx
     - php-fpm
     - wordpress
+    - ftp

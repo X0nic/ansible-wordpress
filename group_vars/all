@@ -16,3 +16,9 @@ mysql_port: 3306
 
 ufw.rules:
   - allow 80
+
+# vsftpd
+vsftpd_anonymous_enable: 'NO'
+vsftpd_local_enable: 'YES'
+vsftpd_write_enable: 'YES'
+vsftpd_local_umask: '002'
